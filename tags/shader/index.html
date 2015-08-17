@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>六饼</title>
+  <title>Tag: shader | 六饼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="测试3">
 <meta property="og:type" content="website">
 <meta property="og:title" content="六饼">
-<meta property="og:url" content="https://bbbbbbion.github.io/index.html">
+<meta property="og:url" content="https://bbbbbbion.github.io/tags/shader/index.html">
 <meta property="og:site_name" content="六饼">
 <meta property="og:description" content="测试3">
 <meta name="twitter:card" content="summary">
@@ -162,75 +162,56 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-法向量从模型坐标系转换到世界坐标系" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/" class="article-date">
-  	<time datetime="2015-08-17T07:51:50.000Z" itemprop="datePublished">2015-08-17</time>
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/" class="archive-article-date">
+  	<time datetime="2015-08-17T07:51:50.000Z" itemprop="datePublished">Aug 17</time>
 </a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/">法向量从模型坐标系转换到世界坐标系</a>
+      <a class="archive-article-title" href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/">法向量从模型坐标系转换到世界坐标系</a>
     </h1>
   
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。">本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。</h2><h1 id="1：前导知识">1：前导知识</h1><p>众所周知Unity3D shader中，把模型的顶点坐标从模型坐标系转换到世界坐标系的方法为:<br>float4 worldPos=mul(_Object2World,input.vertex);<br>由于Unity3D shader中向量默认为列向量，所以上述等式右乘矩阵。<br>另外有_Object2World和_World2Object互为逆矩阵。<br>求一个矩阵M的转置矩阵，可以使用transpos()方法：M<sup>T</sup>=transpos(M);  </p>
-<h1 id="2：法向量的不同之处">2：法向量的不同之处</h1><p>脑补一下，法向量可以看成是由两个点组成的，因此在进行矩阵变换的时候若涉及到缩放变换，则会导致法向量不再垂直于物体表面。<br>因此我们不能使用float4 worldNormal=mul(_Object2World,float4(normal.xyz,0.0))来求得法向量的世界坐标。</p>
-<h1 id="3：正确的方法">3：正确的方法</h1><h2 id="3-1：公式推导">3.1：公式推导</h2><p>假定使用列向量。<br>设一个通过原点的面的法向量为<strong>n</strong>,面上面的非原点处的点p(点p和原点构成向量<strong>p</strong>),点转换到世界坐标的转换矩阵为<strong>M</strong>,待求的转换矩阵<strong>X</strong>为把法向量转换到世界坐标的矩阵。<br>则有<strong>p</strong>.<strong>n</strong><sup>T</sup>=0<br>可知对法向量进行转换后仍然垂直于经过M转换的p向量：Mp.(Xn)<sup>T</sup>=0 =&gt; Mpn<sup>T</sup>X<sup>T</sup><br>=0<br>所以有MX<sup>T</sup>=I =&gt; X=(M<sup>-1</sup>)<sup>T</sup><br>即，待求的转换矩阵为点转换矩阵M的转置逆矩阵。  </p>
-<h2 id="3-2：Unity3D中应用">3.2：Unity3D中应用</h2><p>由上述推导可知，法线的世界坐标=mul(((_Object2World)<sup>-1</sup>)<sup>T</sup>,float4(normal,0.0))。<br>由于向量右乘矩阵等于左乘矩阵的转置。可得:<br>worldNormal=mul(float4(normal.xyz,0.0),_World2Object);</p>
-<h1 id="4:参考文档">4:参考文档</h1><ul>
-<li><p><a href="http://www.cnblogs.com/qzzlw/archive/2012/10/23/2736277.html" target="_blank" rel="external">http://www.cnblogs.com/qzzlw/archive/2012/10/23/2736277.html</a>  </p>
-</li>
-<li><p><a href="https://en.wikibooks.org/wiki/Cg_Programming/Vector_and_Matrix_Operations" target="_blank" rel="external">https://en.wikibooks.org/wiki/Cg_Programming/Vector_and_Matrix_Operations</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cg/">cg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shader/">shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity3d/">unity3d</a></li></ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/奇淫技巧/">奇淫技巧</a>
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
-  
 </article>
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -254,10 +235,10 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
