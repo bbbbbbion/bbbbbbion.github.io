@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Shader | 六饼</title>
+  <title>使用NShader插件高亮Unity3D Shader文件 | 六饼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="六饼">
-<meta property="og:url" content="https://bbbbbbion.github.io/tags/Shader/index.html">
+  <meta name="description" content="使用NShader插件高亮Unity3D Shader文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用NShader插件高亮Unity3D Shader文件">
+<meta property="og:url" content="https://bbbbbbion.github.io/2015/08/17/使用NShader插件高亮Unity3D Shader文件/index.html">
 <meta property="og:site_name" content="六饼">
-<meta property="og:description" content="测试3">
+<meta property="og:description" content="使用NShader插件高亮Unity3D Shader文件">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/SetVisualStudio2012.jpg">
+<meta property="og:updated_time" content="2015-08-17T14:22:21.344Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六饼">
-<meta name="twitter:description" content="测试3">
+<meta name="twitter:title" content="使用NShader插件高亮Unity3D Shader文件">
+<meta name="twitter:description" content="使用NShader插件高亮Unity3D Shader文件">
   
     <link rel="alternative" href="/atom.xml" title="六饼" type="application/atom+xml">
   
@@ -160,57 +162,118 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-使用NShader插件高亮Unity3D Shader文件" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/" class="archive-article-date">
-  	<time datetime="2015-08-17T14:07:52.000Z" itemprop="datePublished">Aug 17</time>
+    <div class="article-meta">
+      <a href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/" class="article-date">
+  	<time datetime="2015-08-17T14:07:52.000Z" itemprop="datePublished">2015-08-17</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/">使用NShader插件高亮Unity3D Shader文件</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用NShader插件高亮Unity3D Shader文件
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NShader/">NShader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/">Shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/软件安装/">软件安装</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文以Visual_Studio_2012版本为例，解决插件安装过程中遇到的问题。">本文以Visual Studio 2012版本为例，解决插件安装过程中遇到的问题。</h2><p>官网下载好插件，安装后，打开Unity3D创建的.Shader文件，发现并没有高亮。<br>按照提示：<br><strong>Remove the registry entry:</strong><br>HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0\FontAndColors\Cache<br><strong>and</strong> HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0_Config<br><strong>Remove all lines using “fx” or “hlsl” in file</strong> C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\VC\VC_Pkg_Core_Registration.pkgdef .<br>发现依旧不行。</p>
+<p>经过搜索，解决方法为：<br>在C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\34wgsmdv.olw目录下（PS:34wgsmdv.olw 这个目录可能各个机器不一样）的NShader.pkgdef文件的”CodeBase”=”$PackageFolder$\NShader.dll”这一句下面加入<br>[$RootKey$\Languages\File Extensions.shader]<br>@=”{4c554917-0eb7-3742-9f6b-f2f529fc6729}”<br>即，添加了对.shader后缀文件的支持。<br>上述步骤完成后，还要重新删除上述提到的两个注册表，否则依旧无法生效。</p>
+<p>另外，若机器安装了UnityVS,且设置了默认编辑器为UnityVS.OpenFile。这样双击.shader文件，VS界面是没有任何内容的。看来是UnityVS插件不支持.shader文件。因此打开.shader文件的时候需要手动更改Unity的编辑器为Visual Studio 2012。如下图所示：<br><img src="/img/SetVisualStudio2012.jpg" alt="SetVisualStudio2012.jpg"></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/17/OpenGL ES/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          OpenGL ES
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/17/小众软件汇总/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小众软件汇总</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="使用NShader插件高亮Unity3D Shader文件" data-title="使用NShader插件高亮Unity3D Shader文件" data-url="https://bbbbbbion.github.io/2015/08/17/使用NShader插件高亮Unity3D Shader文件/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -236,9 +299,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
