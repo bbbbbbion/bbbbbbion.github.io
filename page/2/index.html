@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 15px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 20px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 10px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 13.33px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 16.67px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 13.33px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 13.33px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -161,6 +161,67 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-使用NShader插件高亮Unity3D Shader文件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/" class="article-date">
+  	<time datetime="2015-08-17T14:07:52.000Z" itemprop="datePublished">2015-08-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/">使用NShader插件高亮Unity3D Shader文件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文以Visual_Studio_2012版本为例，解决插件安装过程中遇到的问题。">本文以Visual Studio 2012版本为例，解决插件安装过程中遇到的问题。</h2><p>官网下载好插件，安装后，打开Unity3D创建的.Shader文件，发现并没有高亮。<br>按照提示：<br><strong>Remove the registry entry:</strong><br>HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0\FontAndColors\Cache<br><strong>and</strong> HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0_Config<br><strong>Remove all lines using “fx” or “hlsl” in file</strong> C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\VC\VC_Pkg_Core_Registration.pkgdef .<br>发现依旧不行。</p>
+<p>经过搜索，解决方法为：<br>在C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\34wgsmdv.olw目录下（PS:34wgsmdv.olw 这个目录可能各个机器不一样）的NShader.pkgdef文件的”CodeBase”=”$PackageFolder$\NShader.dll”这一句下面加入<br>[$RootKey$\Languages\File Extensions.shader]<br>@=”{4c554917-0eb7-3742-9f6b-f2f529fc6729}”<br>即，添加了对.shader后缀文件的支持。<br>上述步骤完成后，还要重新删除上述提到的两个注册表，否则依旧无法生效。</p>
+<p>另外，若机器安装了UnityVS,且设置了默认编辑器为UnityVS.OpenFile。这样双击.shader文件，VS界面是没有任何内容的。看来是UnityVS插件不支持.shader文件。因此打开.shader文件的时候需要手动更改Unity的编辑器为Visual Studio 2012。如下图所示：<br><img src="/img/SetVisualStudio2012.jpg" alt="SetVisualStudio2012.jpg"></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NShader/">NShader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/">Shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/软件安装/">软件安装</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-小众软件汇总" class="article article-type-post" itemscope itemprop="blogPost">
   

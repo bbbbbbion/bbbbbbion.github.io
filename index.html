@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 15px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 20px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 10px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 13.33px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 16.67px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 13.33px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 13.33px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -161,6 +161,79 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Unity3D通过反射实现安卓的代码热更新" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/16/Unity3D通过反射实现安卓的代码热更新/" class="article-date">
+  	<time datetime="2015-09-16T14:36:37.000Z" itemprop="datePublished">2015-09-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/16/Unity3D通过反射实现安卓的代码热更新/">Unity3D通过反射实现安卓的代码热更新</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。">本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。</h2><h1 id="前言：">前言：</h1><p>Unity3D 5.0之后API中取消了AddComponent(“”)，因此若要使用string来获得对应的Type，可以使用Type.GetType(“”)。注意目前（2015-09-16）GetComponent(“”)仍然保留。</p>
+<h1 id="实现">实现</h1><p>采用官方XData方式的热更新方案。<br>游戏中的代码分为以下几类： </p>
+<ul>
+<li><p>1：Support<br>用于游戏框架代码的编写，如：文件的读写、UI页面的开关、资源更新、逻辑热更assetbundle的更新等等。</p>
+</li>
+<li><p>2：XData<br>用于和逻辑代码通信，通常XData代码会挂载在具体的obj上，在XData中通常会声明public的gameobject，实现对游戏内部物体的引用。</p>
+</li>
+<li><p>3：逻辑热更代码<br>和XData脚本一一对应，通过反射的方式加载到gameobject上，另外通过获得XData中的public gameobject来实现逻辑代码的编写。 </p>
+</li>
+</ul>
+<p>一般Support代码不需要热更，不过如果要热更的话，Support还需要分为SupportLogic和XDataSupport，本文以不需要热更为例。 </p>
+<p>support代码中提供editor模式和发布模式两种方式，保证editor模式下不需要检查逻辑代码的dll是否最新，可以直接运行工程和调试。</p>
+<p>对于发布模式，发布的时候需要新建VS类库（建议.NET3.5），引用工程build出的Assembly-CSharp这个dll, build（建议Release模式下Build）后生成XXXXX.dll,建议后面加上新后缀.bytes,这样Unity会把它识别为AssetText,然后打包成assetbundle。</p>
+<p>首次启动手机的时候把assetbundle解压到persistantDataPath下，然后通过本地注册表内的版本号和服务器上版本号比对，确定是否需要下载服务器上的assetbundle。然后WWW读取assetbundle，提取Type。 </p>
+<p>以上就是大概思路，另外VS类库打dll时，把不需要的引用给删除，确保dll最小。demo工程我已经放到百度云上了：</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反射/">反射</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/热更新/">热更新</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-使用PEiD查看文件的壳" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -973,7 +1046,7 @@ public class PlayerEditor : Editor
     <div class="article-entry" itemprop="articleBody">
       
         <p>一般意义上图像的像素深度和图像深度是一个概念。都是指存储每个像素所用的位数（bits per pixel,BPP），用来度量图像的分辨率，可以用来决定彩色图像的每个像素可能有的颜色数或者确定灰度图像的每个像素可能有的灰度级别。<br>例如，一副彩色图像的每个像素用r、g、b三个分量表示，若每个分量用8位，那么一个像素公用24位表示，就说像素的深度为24，每个像素可以是2的24次方种颜色中的一种。  </p>
-<p>根据图像的深度可以计算出图像的数据量。<br>如，一副图像的尺寸是1024<em>768，深度为16。则其数据量为:<br>字节（byte）数：1024</em>768<em>16/8（单位B）<br>KB数：1024</em>768<em>16/8/1024（单位KB）<br>MB数：1024</em>768*16/8/1024/1024（单位MB）<br>最终计算所得MB为1.5MB。</p>
+<p>根据图像的深度可以计算出图像的数据量。<br>如，一副图像的尺寸是1024 <em> 768，深度为16。则其数据量为:<br>字节（byte）数：1024 </em> 768 <em> 16/8（单位B）<br>KB数：1024 </em> 768 <em> 16/8/1024（单位KB）<br>MB数：1024 </em> 768 * 16/8/1024/1024（单位MB）<br>最终计算所得MB为1.5MB。</p>
 
       
     </div>
@@ -1176,67 +1249,6 @@ public class PlayerEditor : Editor
       
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-使用NShader插件高亮Unity3D Shader文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/" class="article-date">
-  	<time datetime="2015-08-17T14:07:52.000Z" itemprop="datePublished">2015-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/使用NShader插件高亮Unity3D Shader文件/">使用NShader插件高亮Unity3D Shader文件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文以Visual_Studio_2012版本为例，解决插件安装过程中遇到的问题。">本文以Visual Studio 2012版本为例，解决插件安装过程中遇到的问题。</h2><p>官网下载好插件，安装后，打开Unity3D创建的.Shader文件，发现并没有高亮。<br>按照提示：<br><strong>Remove the registry entry:</strong><br>HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0\FontAndColors\Cache<br><strong>and</strong> HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\11.0_Config<br><strong>Remove all lines using “fx” or “hlsl” in file</strong> C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\CommonExtensions\Microsoft\VC\VC_Pkg_Core_Registration.pkgdef .<br>发现依旧不行。</p>
-<p>经过搜索，解决方法为：<br>在C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE\Extensions\34wgsmdv.olw目录下（PS:34wgsmdv.olw 这个目录可能各个机器不一样）的NShader.pkgdef文件的”CodeBase”=”$PackageFolder$\NShader.dll”这一句下面加入<br>[$RootKey$\Languages\File Extensions.shader]<br>@=”{4c554917-0eb7-3742-9f6b-f2f529fc6729}”<br>即，添加了对.shader后缀文件的支持。<br>上述步骤完成后，还要重新删除上述提到的两个注册表，否则依旧无法生效。</p>
-<p>另外，若机器安装了UnityVS,且设置了默认编辑器为UnityVS.OpenFile。这样双击.shader文件，VS界面是没有任何内容的。看来是UnityVS插件不支持.shader文件。因此打开.shader文件的时候需要手动更改Unity的编辑器为Visual Studio 2012。如下图所示：<br><img src="/img/SetVisualStudio2012.jpg" alt="SetVisualStudio2012.jpg"></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NShader/">NShader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/">Shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Visual-Studio/">Visual Studio</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/软件安装/">软件安装</a>
 	</div>
 
 
