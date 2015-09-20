@@ -12,7 +12,8 @@
 <meta property="og:site_name" content="六饼">
 <meta property="og:description" content="Unity3D行结束符相关问题">
 <meta property="og:image" content="https://bbbbbbion.github.io/img/AdvancedSaveOption.jpg">
-<meta property="og:updated_time" content="2015-08-29T17:32:51.028Z">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/LineEnd.jpg">
+<meta property="og:updated_time" content="2015-09-20T15:41:51.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D行结束符相关问题">
 <meta name="twitter:description" content="Unity3D行结束符相关问题">
@@ -104,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 13.33px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 16.67px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 13.33px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 13.33px;">软件安装</a>
+						<a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -205,7 +206,7 @@
       
         <p>本文以Windows系统上来说明。<br>相信很多Unity3D开发者都遇到过这个警告：<br>There are inconsistent line endings in the ‘XXXXXX’ script. Some are Mac OS X (UNIX) and some are Windows.<br>This might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands<br>这个警告告诉你，有某脚本上的行结束符不一致，即既有有CR LF标识的，又有LF标识的。这样的话会导致堆栈路径中的错误行数，甚至是编译错误。<br>需要注意的是，CR LF是windows系统上的行结束符，LF是Unix系统上的行结束符。  </p>
 <p>使用Notepad++可以查看文件的行尾符。视图-&gt;显示符号-&gt;显示行尾符。  </p>
-<p>使用Visual Studio可以统一某个脚本的行结束符：FILE-&gt;Advanced Save Options<br>在弹出的面板中选择需要的Line endings即可。如下图：<br><img src="/img/AdvancedSaveOption.jpg" alt="AdvancedSaveOption.jpg">  </p>
+<p>使用Visual Studio可以统一某个脚本的行结束符：FILE-&gt;Advanced Save Options<br>在弹出的面板中选择需要的Line endings即可。如下图：<br><img src="/img/AdvancedSaveOption.jpg" alt="AdvancedSaveOption.jpg"><br>也可以使用Notepad++来更改行结束符：<br><img src="/img/LineEnd.jpg" alt="使用Notepad++更改行结束符">  </p>
 <p>个人机器可以将：C:\Program Files\Unity\Editor\Data\Resources\ScriptTemplates\下4个unity新建文件的模板改为需要的行结束符。</p>
 
       
