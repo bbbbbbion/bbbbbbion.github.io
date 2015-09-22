@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 热更新 | 六饼</title>
+  <title>安卓adb命令及结合Unity3D的使用 | 六饼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="六饼">
-<meta property="og:url" content="https://bbbbbbion.github.io/tags/热更新/index.html">
+  <meta name="description" content="安卓adb命令及结合Unity3D的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安卓adb命令及结合Unity3D的使用">
+<meta property="og:url" content="https://bbbbbbion.github.io/2015/09/23/安卓adb命令及结合Unity3D的使用/index.html">
 <meta property="og:site_name" content="六饼">
-<meta property="og:description" content="测试3">
+<meta property="og:description" content="安卓adb命令及结合Unity3D的使用">
+<meta property="og:updated_time" content="2015-09-22T16:34:55.432Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六饼">
-<meta name="twitter:description" content="测试3">
+<meta name="twitter:title" content="安卓adb命令及结合Unity3D的使用">
+<meta name="twitter:description" content="安卓adb命令及结合Unity3D的使用">
   
     <link rel="alternative" href="/atom.xml" title="六饼" type="application/atom+xml">
   
@@ -160,92 +161,109 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-安卓adb命令及结合Unity3D的使用" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/16/Unity3D通过反射实现安卓的代码热更新/" class="archive-article-date">
-  	<time datetime="2015-09-16T14:36:37.000Z" itemprop="datePublished">Sep 16</time>
+    <div class="article-meta">
+      <a href="/2015/09/23/安卓adb命令及结合Unity3D的使用/" class="article-date">
+  	<time datetime="2015-09-22T16:21:19.000Z" itemprop="datePublished">2015-09-23</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/16/Unity3D通过反射实现安卓的代码热更新/">Unity3D通过反射实现安卓的代码热更新</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安卓adb命令及结合Unity3D的使用
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/反射/">反射</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安卓/">安卓</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/热更新/">热更新</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="简介">简介</h1><p>adb全称为Android Debug Bridge,起调试桥的作用。</p>
+<h1 id="安装">安装</h1><p>1：将Android SDK中的platform-tools路径加到系统环境变量中<br>2：也可以不安装，每次都全目录来执行cmd命令</p>
+<h1 id="常用命令">常用命令</h1><p>adb help 查看adb相关信息，包括版本号，常用命令等等<br>adb version 查看adb版本<br>adb install abc.apk 安装apk，一般虚拟机安装的时候使用该命令<br>adb devices 列出当前连接到主机的设备，可以用该命令查看手机是否和电脑通过usb连接了，比如用于Unity Remote联调判断连接情况<br>adb logcat 捕获设备的日志信息<br>adb logcat -s Unity 专门获得Unity相关的日志（注意U要大写）<br>adb shell 获取设备的shell环境<br>adb shell dumpsys meminfo com.test 查看正在运行的的安卓设备的程序的内存占用情况</p>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/22/使用Remote连调Unity3D和移动端/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用Remote连调Unity3D和移动端</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/03/ulua学习笔记1-环境搭建和基础知识/" class="archive-article-date">
-  	<time datetime="2015-09-03T06:34:27.000Z" itemprop="datePublished">Sep 3</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/03/ulua学习笔记1-环境搭建和基础知识/">ulua学习笔记1-环境搭建和基础知识</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lua/">lua</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ulua/">ulua</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/热更新/">热更新</a></li></ul>
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="安卓adb命令及结合Unity3D的使用" data-title="安卓adb命令及结合Unity3D的使用" data-url="https://bbbbbbion.github.io/2015/09/23/安卓adb命令及结合Unity3D的使用/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -271,9 +289,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
