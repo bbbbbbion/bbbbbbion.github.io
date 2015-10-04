@@ -16,7 +16,7 @@
 <meta property="og:image" content="https://bbbbbbion.github.io/img/Editor2Player.png">
 <meta property="og:image" content="https://bbbbbbion.github.io/img/Editor3Player.png">
 <meta property="og:image" content="https://bbbbbbion.github.io/img/DrawGizmoResult.png">
-<meta property="og:updated_time" content="2015-09-01T10:00:35.770Z">
+<meta property="og:updated_time" content="2015-09-30T16:28:30.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D编辑器扩展">
 <meta name="twitter:description" content="Unity3D编辑器扩展">
@@ -108,7 +108,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -237,7 +237,7 @@
         <span class="keyword">return</span> Selection.activeGameObject != <span class="keyword">null</span>;
     }
 }
-</code></pre><p>上述代码实现了为选择的GameObject添加子物体的功能。<br>函数为静态函数，函数名任意，但是第二个验证函数是固定的，必须以Validate开头，再加上前面函数的名字。<br>另外需要注意到第二个验证函数中第一个参数必须和第一个函数一致，第二个参数为true。当验证函数返回false的时候，则第一个函数对应的操作无法激活。代码所示即当没有选择GameObject的时候，Custom/Create Child For Selected GameObjects这个目录下的选项是灰化的。<br>另外MenuItem后面若是跟GameObject则选项出现在已经存在的GameObject选项栏下；若跟Assets，则出现在Assets选项栏下,另外需要注意的是Assets选项栏下的操作都是可以通过在Project面板下右键具体assets来弹出选项的；若跟”CONTEXT/具体Component名/XXX”则可以为这个具体组件的Inspector上下文添加菜单，需要注意的是为具体组件的Inspector上下文添加菜单不支持多重层次。<br>以下代码为Inspector上下文菜单：  </p>
+</code></pre><p>上述代码实现了为选择的GameObject添加子物体的功能。<br>函数为静态函数，函数名任意，但是第二个验证函数是固定的，必须以Validate开头，再加上前面函数的名字。<br>另外需要注意到第二个验证函数中第一个参数必须和第一个函数一致，第二个参数为true。当验证函数返回false的时候，则第一个函数对应的操作无法激活。代码所示即当没有选择GameObject的时候，Custom/Create Child For Selected GameObjects这个目录下的选项是灰化的。<br>另外MenuItem后面若是跟GameObject则选项出现在已经存在的GameObject选项栏下；<br>若跟Assets，则出现在Assets选项栏下,另外需要注意的是Assets选项栏下的操作都是可以通过在Project面板下右键具体assets来弹出选项的；<br>若跟Assets/Create则选项出现在Project视图的Create按钮下；<br>若跟”CONTEXT/具体Component名/XXX”则可以为这个具体组件的Inspector上下文添加菜单,菜单的打开方式为右键组件或者左键组件最右边的“齿轮”按钮，需要注意的是为具体组件的Inspector上下文添加菜单不支持多重层次。<br>以下代码为Inspector上下文菜单：  </p>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AddChild</span>
 {
     [MenuItem(<span class="string">"CONTEXT/Transform/Create Child For Selected GameObjects"</span>)]
@@ -256,14 +256,40 @@
         <span class="keyword">return</span> Selection.activeGameObject != <span class="keyword">null</span>;
     }
 }
-</code></pre><p>以上代码实现了把增加子节点的功能注入到Inspector面板上Transform组件的弹出菜单中。<br>另外有时候我们需要获得Inspector上下文菜单对应的组件，这个时候需要用到MenuCommand,如下：  </p>
+</code></pre><p>以上代码实现了把增加子节点的功能注入到Inspector面板上Transform组件的弹出菜单中。<br>另外有时候我们需要获得Inspector上下文菜单对应的组件，这个时候需要用到<strong>MenuCommand</strong>,如下：  </p>
 <pre><code>[MenuItem(<span class="string">"CONTEXT/Rigidbody/DoSomething"</span>)]
-<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DoSomething</span><span class="params">(MenuCommand command)</span>
+<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">DoSomething</span><span class="params">(OnInspectorGUI command)</span>
 </span>{
     Rigidbody body=command.context;
     body.mass=<span class="number">5</span>;
 }
-</code></pre><h2 id="继承自ScriptableWizard">继承自ScriptableWizard</h2><p>通过继承ScriptableWizard可以创建编辑器向导，Unity3D已经为我们封装好了一些变量、方法、消息。如：  </p>
+</code></pre><p><strong>补充：</strong><br>MenuItem标识可以实现排序和分组的功能  </p>
+<pre><code>[MenuItem(<span class="string">"NewMenu/Option1"</span>, <span class="literal">false</span>, <span class="number">1</span>)]
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewMenuOption</span><span class="params">()</span>
+</span>{
+}
+
+[MenuItem(<span class="string">"NewMenu/Option2"</span>, <span class="literal">false</span>, <span class="number">2</span>)]
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewMenuOption2</span><span class="params">()</span>
+</span>{
+}
+
+[MenuItem(<span class="string">"NewMenu/Option3"</span>, <span class="literal">false</span>, <span class="number">3</span>)]
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewMenuOption3</span><span class="params">()</span>
+</span>{
+}
+
+[MenuItem(<span class="string">"NewMenu/Option4"</span>, <span class="literal">false</span>, <span class="number">51</span>)]
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewMenuOption4</span><span class="params">()</span>
+</span>{
+}
+
+[MenuItem(<span class="string">"NewMenu/Option5"</span>, <span class="literal">false</span>, <span class="number">52</span>)]
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">NewMenuOption5</span><span class="params">()</span>
+</span>{
+}
+</code></pre><p>如上述代码所示，最后的阿拉伯数字即排序所用，越小的排在越上，UnityEditor会自动分组，50为单位。</p>
+<h2 id="继承自ScriptableWizard">继承自ScriptableWizard</h2><p>通过继承ScriptableWizard可以创建编辑器向导，Unity3D已经为我们封装好了一些变量、方法、消息。如：  </p>
 <ul>
 <li><p>变量：errorString(设置向导的错误提示信息)、helpString(设置向导的帮助提示)、isValid(可以控制向导的Create Button和Other Button能否点击)。  </p>
 </li>
