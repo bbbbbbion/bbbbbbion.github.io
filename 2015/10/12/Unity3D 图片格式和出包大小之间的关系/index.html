@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>六饼</title>
+  <title>Unity3D 图片格式和出包大小之间的关系 | 六饼</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试3">
-<meta property="og:type" content="website">
-<meta property="og:title" content="六饼">
-<meta property="og:url" content="https://bbbbbbion.github.io/page/4/index.html">
+  <meta name="description" content="Unity3D 图片格式和出包大小之间的关系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D 图片格式和出包大小之间的关系">
+<meta property="og:url" content="https://bbbbbbion.github.io/2015/10/12/Unity3D 图片格式和出包大小之间的关系/index.html">
 <meta property="og:site_name" content="六饼">
-<meta property="og:description" content="测试3">
+<meta property="og:description" content="Unity3D 图片格式和出包大小之间的关系">
+<meta property="og:updated_time" content="2015-10-11T16:56:33.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六饼">
-<meta name="twitter:description" content="测试3">
+<meta name="twitter:title" content="Unity3D 图片格式和出包大小之间的关系">
+<meta name="twitter:description" content="Unity3D 图片格式和出包大小之间的关系">
   
     <link rel="alternative" href="/atom.xml" title="六饼" type="application/atom+xml">
   
@@ -160,13 +161,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-Win7-根据字符搜索文件" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="posts-Unity3D 图片格式和出包大小之间的关系" class="article article-type-posts" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/17/Win7-根据字符搜索文件/" class="article-date">
-  	<time datetime="2015-08-17T13:37:01.000Z" itemprop="datePublished">2015-08-17</time>
+      <a href="/2015/10/12/Unity3D 图片格式和出包大小之间的关系/" class="article-date">
+  	<time datetime="2015-10-11T16:56:33.908Z" itemprop="datePublished">2015-10-12</time>
 </a>
     </div>
   
@@ -178,122 +177,99 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/Win7-根据字符搜索文件/">Win7 根据字符搜索文件</a>
+    <h1 class="article-title" itemprop="name">
+      Unity3D 图片格式和出包大小之间的关系
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一步：打开控制面板<br>第二步：选择文件夹选项<br>第三步：将搜索内容该为“始终搜索文件名和内容”<br>然后点击应用、确定，即可。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/操作系统使用/">操作系统使用</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/奇淫技巧/">奇淫技巧</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-法向量从模型坐标系转换到世界坐标系" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/" class="article-date">
-  	<time datetime="2015-08-17T07:51:50.000Z" itemprop="datePublished">2015-08-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/17/法向量从模型坐标系转换到世界坐标系/">法向量从模型坐标系转换到世界坐标系</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。">本文为bbbbbbion（可以叫我六饼）原创总结，如有疏漏请各位拍砖留言。转载请尊重原作者成果，保留出处。</h2><h1 id="1：前导知识">1：前导知识</h1><p>众所周知Unity3D shader中，把模型的顶点坐标从模型坐标系转换到世界坐标系的方法为:<br>float4 worldPos=mul(_Object2World,input.vertex);<br>由于Unity3D shader中向量默认为列向量，所以上述等式右乘矩阵。<br>另外有_Object2World和_World2Object互为逆矩阵。<br>求一个矩阵M的转置矩阵，可以使用transpos()方法：M<sup>T</sup>=transpos(M);  </p>
-<h1 id="2：法向量的不同之处">2：法向量的不同之处</h1><p>脑补一下，法向量可以看成是由两个点组成的，因此在进行矩阵变换的时候若涉及到缩放变换，则会导致法向量不再垂直于物体表面。<br>因此我们不能使用float4 worldNormal=mul(_Object2World,float4(normal.xyz,0.0))来求得法向量的世界坐标。</p>
-<h1 id="3：正确的方法">3：正确的方法</h1><h2 id="3-1：公式推导">3.1：公式推导</h2><p>假定使用列向量。<br>设一个通过原点的面的法向量为<strong>n</strong>,面上面的非原点处的点p(点p和原点构成向量<strong>p</strong>),点转换到世界坐标的转换矩阵为<strong>M</strong>,待求的转换矩阵<strong>X</strong>为把法向量转换到世界坐标的矩阵。<br>则有<strong>p</strong>.<strong>n</strong><sup>T</sup>=0<br>可知对法向量进行转换后仍然垂直于经过M转换的p向量：Mp.(Xn)<sup>T</sup>=0 =&gt; Mpn<sup>T</sup>X<sup>T</sup><br>=0<br>所以有MX<sup>T</sup>=I =&gt; X=(M<sup>-1</sup>)<sup>T</sup><br>即，待求的转换矩阵为点转换矩阵M的转置逆矩阵。  </p>
-<h2 id="3-2：Unity3D中应用">3.2：Unity3D中应用</h2><p>由上述推导可知，法线的世界坐标=mul(((_Object2World)<sup>-1</sup>)<sup>T</sup>,float4(normal,0.0))。<br>由于向量右乘矩阵等于左乘矩阵的转置。可得:<br>worldNormal=mul(float4(normal.xyz,0.0),_World2Object);</p>
-<h1 id="4:参考文档">4:参考文档</h1><ul>
-<li><p><a href="http://www.cnblogs.com/qzzlw/archive/2012/10/23/2736277.html" target="_blank" rel="external">http://www.cnblogs.com/qzzlw/archive/2012/10/23/2736277.html</a>  </p>
-</li>
-<li><p><a href="https://en.wikibooks.org/wiki/Cg_Programming/Vector_and_Matrix_Operations" target="_blank" rel="external">https://en.wikibooks.org/wiki/Cg_Programming/Vector_and_Matrix_Operations</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shader/">Shader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cg/">cg</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
 	</div>
 
-      
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
 	</div>
 
 
+        <div class="clearfix"></div>
+      </div>
       
-      <div class="clearfix"></div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文以PC平台说明。所用素材为:<a href="http://pan.baidu.com/s/1sOuK2/" target="_blank" rel="external">http://pan.baidu.com/s/1sOuK2/</a></p>
+<h1 id="情况一:">情况一:</h1><p>一张jpg图片分辨率1024*768，在PC上占用的空间为762KB。<br>复制50张。  </p>
+<h2 id="1：放到StreamingAssets目录下">1：放到StreamingAssets目录下</h2><p>打包后，50张图在生成的包的StreamingAssets目录下，且每个图片的空间为762KB。<br>StreamingAssets目录大小为37.2MB。即没有压缩、没有二进制打包。StreamingAssets目录下的保持原样。在Unity中改变图片的纹理压缩格式，对打出的包的大小没有影响，即只和原始格式有关。</p>
+<h2 id="2：放到Resources目录下">2：放到Resources目录下</h2><p>图片的纹理格式为RGB ETC1 4bit时，每个图占用内存384KB（逐像素算，不同于外存中图片大小的算法）。384*50=19200<br>再看最终resources.assets文件大小为19208KB（18.7MB）。即约等于每个图片的内存大小之和。</p>
+<h1 id="情况二:">情况二:</h1><p>对该jpg图片进行压缩。<br>本人使用Sage Thumbs的右键快捷方式：转换为jpg，把50个图片转换了一下（保持尺寸不变），每个图片在PC的存储空间从762KB变成184KB。<br>再放到StreamingAssets下打包,StreamingAssets包的大小变为8.99MB。<br>放到resources目录下打包，依旧使用RGB ETC1 4bit。最终结果依旧为19208KB（18.7MB）。  </p>
+<p>综上：图片若是放在StreamingAssets目录下，尽量减少图片的占用空间，从而减少包的尺寸。<br>Resources目录下打包，图片最终占用空间和其最终运行时占用的内存一致，即跟其纹理压缩格式有关。另外Resources目录打包后是以二进制格式保存的，比较安全。</p>
+<h1 id="情况三:">情况三:</h1><p>打assetbundle<br>回到每张图外存762KB的情况，使用RGB ETC1 4bit （每个图384KB）的纹理压缩格式。对每个图打成assetbundle，每个assetbundle大小为200KB。<br>再使用RGB 16bit（每个图占用1.5MB）的纹理压缩格式，每个图的assetbundle大小为470KB。<br>再使用RGB 16bit的纹理压缩格式，再把图片外存改成184KB（按照上述情况二所述），打出的assetbundle大小为582KB。</p>
+<p>综上：可见assetbundle大小也和纹理压缩格式有关，纹理压缩格式占用空间越大，bundle也越大。相对来说assetbundle在纹理压缩的基础上还进一步压缩了，从而减少大小。<br>另外和原始外存压缩格式也有关，具体关系本人也没有深究。<br>由于assetbundle一般不放到Resources目录下，所以这里不讨论放到Resources目录下的情况。<br>（实际上我也测试了一下，把assetbundle单独放到Resources目录下，打出的包没有resources.assets这个文件）</p>
+
+      
     </div>
     
   </div>
   
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/04/Unity3D mecanim杂记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity3D mecanim杂记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Unity3D 图片格式和出包大小之间的关系" data-title="Unity3D 图片格式和出包大小之间的关系" data-url="https://bbbbbbion.github.io/2015/10/12/Unity3D 图片格式和出包大小之间的关系/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -317,8 +293,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
