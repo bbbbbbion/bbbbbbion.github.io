@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>几种在Unity中创建AnimationCurve的方法比较 | 六饼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="几种在Unity中创建AnimationCurve的方法比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="几种在Unity中创建AnimationCurve的方法比较">
+<meta property="og:url" content="https://bbbbbbion.github.io/2016/03/06/几种在Unity中创建AnimationCurve的方法比较/index.html">
+<meta property="og:site_name" content="六饼">
+<meta property="og:description" content="几种在Unity中创建AnimationCurve的方法比较">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve1.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve2.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve3.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve4.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve5.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve6.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve7.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve8.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve11.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve12.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve13.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve14.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AnimationCurve15.png">
+<meta property="og:updated_time" content="2016-03-06T13:36:47.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="几种在Unity中创建AnimationCurve的方法比较">
+<meta name="twitter:description" content="几种在Unity中创建AnimationCurve的方法比较">
+  
+    <link rel="alternative" href="/atom.xml" title="六饼" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar img 256.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">bbbbbbion</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">程序员也有一个艺术家梦。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">存档</a></li>
+				        
+							<li><a href="/photos">照片</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/沙里淘金/" style="font-size: 10px;">沙里淘金</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">bbbbbbion</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/avatar img 256.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">bbbbbbion</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">程序员也有一个艺术家梦。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">存档</a></li>
+		        
+					<li><a href="/photos">照片</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-几种在Unity中创建AnimationCurve的方法比较" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/几种在Unity中创建AnimationCurve的方法比较/" class="article-date">
+  	<time datetime="2016-03-06T12:57:45.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      几种在Unity中创建AnimationCurve的方法比较
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/查漏补缺/">查漏补缺</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>以下内容均在Unity4.5版本中通过</strong></p>
+<h1 id="1：使用编辑器创建动画">1：使用编辑器创建动画</h1><p>假设场景中新建了一个Cube，名字为CubeTest。<br>选中该Cube, 打开Animation面板，点击AddCurve按钮,出现一个“Create New Animation”的保存框：<br><img src="/img/AnimationCurve1.png" alt="&quot;编辑器动画曲线&quot;"><br>默认情况下为Cube添加了Animator组件，<br><img src="/img/AnimationCurve2.png" alt="&quot;编辑器动画曲线&quot;"><br>同时创建了一个AnimatorController（AnimatorController的默认名字和选中的物体名字一致），一个名字为test的anim clip片段.<br><img src="/img/AnimationCurve3.png" alt="&quot;编辑器动画曲线&quot;"><br><img src="/img/AnimationCurve4.png" alt="&quot;编辑器动画曲线&quot;"><br>如图，可见Clip的属性也是和Animator中的Clip是一致的。  </p>
+<p>接下来为这个Clip编辑方块在5秒钟时间内旋转52°的动画。<br><img src="/img/AnimationCurve5.png" alt="&quot;编辑器动画曲线&quot;"><br>如上图：Sample代表每秒采样的次数，图示60，则上面300代表的就是5秒时间。同时在Rotation.y处修改度数为52即可。若不使用这种方法而纯粹的通过托右边区域的红线，往往会造成误差。上图中右边区域可见黄线右边还有很多重复的灰色的线段，表示该动画是Loop循环的。若要取消该循环，可以选中该Clip，然后在Inspector面板中取消Loop Time的选项<img src="/img/AnimationCurve6.png" alt="&quot;编辑器动画曲线&quot;"> 。再刷新一下Animation面板，发现灰线消失：<br><img src="/img/AnimationCurve7.png" alt="&quot;编辑器动画曲线&quot;">  </p>
+<p>若要仍使用老版本的Animation动画组件。则必须先为Cube添加Animation组件，然后再打开Animation面板-&gt;AddCurve。这个时候创建的Clip便是符合Animation组件的动画片段了。<br><img src="/img/AnimationCurve8.png" alt="&quot;编辑器动画曲线&quot;"><br>可以通过设置WrapMode来调整动画的循环方式。</p>
+<h1 id="2：使用脚本创建动画">2：使用脚本创建动画</h1><p>依旧以上述Cube为例。新建一个Cube</p>
+<h2 id="2-1_AnimationCurve">2.1 AnimationCurve</h2><h3 id="2-1-1编辑AnimationCurve">2.1.1编辑AnimationCurve</h3><p>新建一个脚本，拖拽到Cube上。代码如下：  </p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">test</span> : <span class="title">MonoBehaviour</span>
+{
+    <span class="keyword">public</span> AnimationCurve curve;
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)
+    </span>{
+
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)
+    </span>{
+
+    }
+}
+</code></pre><p><img src="/img/AnimationCurve11.png" alt="&quot;编辑器曲线Curve&quot;"><br>点击上述红色处，便打开AnimationCurve编辑面板  </p>
+<p><img src="/img/AnimationCurve12.png" alt="&quot;编辑器曲线Curve&quot;"><br>选中一种线形后，如图  </p>
+<p><img src="/img/AnimationCurve13.png" alt="&quot;编辑器曲线Curve&quot;"><br>红色区域，可以选择循环的方式，包括：Loop,Clamp,Pingpang。像1中Animation编辑界面一样，这里也可以为动画线添加Key，设置弯曲等等复杂的操作。<br>最终如图，做了一个5秒，52个单位的动画，并且动画循环方式为Pingpong。下面需要用代码把Curve对应到旋转上<br><img src="/img/AnimationCurve14.png" alt="&quot;编辑器曲线Curve&quot;"><br>最终代码如下：  </p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> test : MonoBehaviour
+{
+    <span class="keyword">public</span> AnimationCurve curve;
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+    </span>{
+
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span>
+    </span>{
+        transform.eulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, curve.Evaluate(Time.time), <span class="number">0</span>);
+    }
+}
+</code></pre><h3 id="2-1-2_代码创建AnimationCurve">2.1.2 代码创建AnimationCurve</h3><p>下面使用代码来完成2.1.1中的Curve细节的创建  </p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> test : MonoBehaviour
+{
+    AnimationCurve curve;
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+    </span>{
+        <span class="comment">//curve = AnimationCurve.Linear(0, 0, 5, 52);</span>
+        curve = <span class="keyword">new</span> AnimationCurve();
+        curve.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">0</span>, <span class="number">0</span>));
+        curve.AddKey((<span class="keyword">new</span> Keyframe(<span class="number">5</span>, <span class="number">52</span>)));
+        <span class="comment">//两种设置Curve的方式都可以。</span>
+        <span class="comment">//第一个调用静态方法来设置（开始时间、开始值、结束时间、结束值 ）</span>
+        <span class="comment">//第二个是先构造函数实例化Curve，然后添加Keyframe(time,value);</span>
+
+        curve.preWrapMode = WrapMode.Clamp;
+        curve.postWrapMode = WrapMode.PingPong;
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span>
+    </span>{
+        transform.eulerAngles = <span class="keyword">new</span> Vector3(<span class="number">0</span>, curve.Evaluate(Time.time), <span class="number">0</span>);
+    }
+}
+</code></pre><h2 id="2-2_Animation">2.2 Animation</h2><p>可以发现上述2.1中动画的播放没有使用到Animation组件，而是使用的AnimationCurve. Evaluate(float time)方法来根据时间对应相对的值。<br>其实也可以使用Animation组件来播放动画，这里以2.1.2中的curve为例。<br>代码如下：  </p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> test : MonoBehaviour
+{
+    <span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+    </span>{
+        AnimationCurve curve = AnimationCurve.Linear(<span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">52</span>);         
+
+        AnimationClip clip = <span class="keyword">new</span> AnimationClip();
+        clip.wrapMode = WrapMode.Loop;
+        clip.SetCurve(<span class="string">""</span>, typeof(Transform), <span class="string">"localRotation.y"</span>, curve);
+
+        animation.AddClip(clip, <span class="string">"test"</span>);
+        animation.Play(<span class="string">"test"</span>);
+    }    
+}
+</code></pre><p>经测试不生效，表现为y rotation瞬间从0变成180。<br>把localRotation.y改成localPosition.y可行。<br>改成localScale.y也不可行。表现为localScale.x和localScale.z变成了0。然后在y上缩放。<br>具体支持的string字符串参见文档，反正是不支持诸如rotation.y之类的。<br>搞不清楚什么原因，TODO:</p>
+<h1 id="3：综合实例">3：综合实例</h1><p>需要实现这样一个功能，实例化某个物体后，物体先下降，然后反弹，最后再下降到底部。<br>首先考虑到Animation编辑器，对Y轴进行编辑，结果如下  </p>
+<p><img src="/img/AnimationCurve15.png" alt="&quot;编辑器曲线Curve&quot;">  </p>
+<p>该图共有4个节点（0,12）,（1,3）,（1.3,12）,（3,-12）<br>然后使用该动作，问题出来了。该动作限制了Position.x为0，因此无论初始化使用这个animation clip的物体在什么地方，都会强制使得position.x变成0。<br>为了解决这个问题，必须使用程序，两套curve,一个模拟图示的曲线控制y的位置。一个用来控制x的位置为初始化位置。<br>代码如下：  </p>
+<pre><code><span class="keyword">float</span> xPos;
+<span class="function"><span class="keyword">void</span> <span class="title">Awake</span><span class="params">()</span>
+</span>{
+    xPos = transform.position.x;
+}
+
+<span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+</span>{
+    <span class="comment">/*模拟Y轴上的位移动画*/</span>
+    AnimationCurve curveY = <span class="keyword">new</span> AnimationCurve();
+    curveY.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">0f</span>, <span class="number">12f</span>));
+    curveY.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">1f</span>, <span class="number">3f</span>));
+    curveY.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">1.3f</span>, <span class="number">12f</span>));
+    curveY.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">3f</span>, -<span class="number">12f</span>));
+    <span class="comment">//curveY.SmoothTangents(0,)//默认AddKey后，经测试程序里面就是按照布泽尔曲线拟合的</span>
+
+    <span class="comment">/*X轴上保持初始化位置*/</span>
+    AnimationCurve curveX = <span class="keyword">new</span> AnimationCurve();
+    curveX.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">0f</span>, xPos));
+    curveX.AddKey(<span class="keyword">new</span> Keyframe(<span class="number">3f</span>, xPos));
+
+    <span class="comment">/*添加自毁函数*/</span>
+    AnimationEvent aniEvent = <span class="keyword">new</span> AnimationEvent();
+    aniEvent.functionName = <span class="string">"DestroySelf"</span>;
+    aniEvent.time = <span class="number">3f</span>;
+
+    AnimationClip clip = <span class="keyword">new</span> AnimationClip();
+    clip.wrapMode = WrapMode.Once;
+    clip.AddEvent(aniEvent);
+    clip.SetCurve(<span class="string">""</span>, typeof(Transform), <span class="string">"localPosition.y"</span>, curveY);
+    clip.SetCurve(<span class="string">""</span>, typeof(Transform), <span class="string">"localPosition.x"</span>, curveX);
+    animation.AddClip(clip, <span class="string">"supplyAnimation"</span>);
+    animation.Play(<span class="string">"supplyAnimation"</span>);
+
+}
+
+<span class="function"><span class="keyword">void</span> <span class="title">DestroySelf</span><span class="params">()</span>
+</span>{
+    Destroy(gameObject);
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/06/Unity3D交互相关总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Unity3D交互相关总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/06/Unity3D中的多线程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity3D中的多线程</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="几种在Unity中创建AnimationCurve的方法比较" data-title="几种在Unity中创建AnimationCurve的方法比较" data-url="https://bbbbbbion.github.io/2016/03/06/几种在Unity中创建AnimationCurve的方法比较/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 bbbbbbion
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

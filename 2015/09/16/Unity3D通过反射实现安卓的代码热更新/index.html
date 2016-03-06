@@ -11,7 +11,9 @@
 <meta property="og:url" content="https://bbbbbbion.github.io/2015/09/16/Unity3D通过反射实现安卓的代码热更新/index.html">
 <meta property="og:site_name" content="六饼">
 <meta property="og:description" content="Unity3D通过反射实现安卓的代码热更新">
-<meta property="og:updated_time" content="2015-09-16T15:27:56.511Z">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/ExeOrder.png">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/AndroidCodeUpdate.png">
+<meta property="og:updated_time" content="2016-03-06T15:27:56.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D通过反射实现安卓的代码热更新">
 <meta name="twitter:description" content="Unity3D通过反射实现安卓的代码热更新">
@@ -103,7 +105,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/沙里淘金/" style="font-size: 10px;">沙里淘金</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -216,7 +218,30 @@
 <p>support代码中提供editor模式和发布模式两种方式，保证editor模式下不需要检查逻辑代码的dll是否最新，可以直接运行工程和调试。</p>
 <p>对于发布模式，发布的时候需要新建VS类库（建议.NET3.5），引用工程build出的Assembly-CSharp这个dll, build（建议Release模式下Build）后生成XXXXX.dll,建议后面加上新后缀.bytes,这样Unity会把它识别为AssetText,然后打包成assetbundle。</p>
 <p>首次启动手机的时候把assetbundle解压到persistantDataPath下，然后通过本地注册表内的版本号和服务器上版本号比对，确定是否需要下载服务器上的assetbundle。然后WWW读取assetbundle，提取Type。 </p>
-<p>以上就是大概思路，另外VS类库打dll时，把不需要的引用给删除，确保dll最小。demo工程我已经放到百度云上了：</p>
+<p>以上就是大概思路，另外VS类库打dll时，把不需要的引用给删除，确保dll最小。demo工程我已经放到百度云上了。</p>
+<p><strong>另外，以下附上，Unity官方提供的安卓代码热更的文档：  </strong></p>
+<p>项目:Android平台代码增量更新</p>
+<p>原则:在XData目录下的脚本不能涉及到序列化信息的更改，文件名，类名，类中所有能被序列化的field(哪些可以被序列化，参考网页<a href="http://blogs.unity3d.com/2014/06/24/serialization-in-unity/" title="serialization-in-unity" target="_blank" rel="external">serialization-in-unity</a>和<a href="http://blogs.unity3d.com/2012/10/25/unity-serialization/" title="unity-serialization" target="_blank" rel="external">unity-serialization</a>)。  </p>
+<p>编译步骤：<br>1、    编译Support的XData工程(refer: null; output:support.dll)<br>2、    编译Support的Logic工程(refer: support.dll; output:supportLogic.dll)动态加载<br>3、    单独编译本地代码的XData部分，移除Script(Logic)目录后编译(refer: support.dll; output:CSharp-Assembly.dll)<br>4、    编译本地代码的Logic部分(refer:support.dll, supportLogic.dll, CSharp-Assembly; output: CSharp-Assembly-Logic.dll)动态加载</p>
+<p>Note<br>1、    保证四个dll的编译平台一致，统一用3.5<br>2、    保证CSharp-Assembly-Logic.dll和CSharp-Assembly.dll的宏定义一致<br>3、    关于AddComponent接口，如果参数是字符串，则只会在CSharp-Assembly中去查找对应的类；如果参数是Type，则只是调用该接口的方法所在的dll中去查找。<br>4、    关于程序报错可从以下方面去查找原因</p>
+<ul>
+<li>Logic类还没有加载，就被GetComponent，使用自然为空，例如子节点初始状态不是active的，在父节点中GetComponent是，子节点的Logic类还没有被初始化，因为XData类还没有调用Awake方法。（如果是这种情况，使用前判空，若为空，Add）</li>
+</ul>
+<ul>
+<li>情况与上述类似，不一样的是，子节点的类是继承类。（Add的时候，注意要Add对应的子类，而不是声明的父类）</li>
+</ul>
+<ul>
+<li><p>在A的Awake方法中GetComponent(B)，其中B也是另一个被拆分的类，出现空引用，原因在于Awake方法是时序的，A被初始化时，B有可能还没有初始化(出现这种情况，保证B在前执行就行，调整XDataA和XDataB的Script Execution Order就行：Edit-&gt;Project Settings-&gt;Script Exection Order)  </p>
+<p> <img src="/img/ExeOrder.png" alt="&quot;代码执行顺序&quot;"></p>
+</li>
+</ul>
+<p>5、    关于脚本跟资源的依赖关系</p>
+<ul>
+<li>脚本和AssetBundle，将资源带成AssetBundle包(1、脚本挂在资源上;2、脚本继承Scriptable，里面存数据，将其变成资源后打包)，在load资源的时候，只会根据打包时生成的hashid去找对应的脚本。Hashid的计算是通过Assemblyname+Namespace+Classname计算出来的，跟序列化信息无关<br><img src="/img/AndroidCodeUpdate.png" alt="&quot;&quot;"></li>
+</ul>
+<ul>
+<li>在Editor状态的资源和脚本的依赖关系是跟序列化信息有关的，脚本和资源之间是通过guid来关联的，如果在外部修改了脚本的信息，返回Untiy Editor后会重新生成脚本的guid，那么相关的资源要重新attach脚本</li>
+</ul>
 
       
     </div>
@@ -291,7 +316,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 bbbbbbion
+    		&copy; 2016 bbbbbbion
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

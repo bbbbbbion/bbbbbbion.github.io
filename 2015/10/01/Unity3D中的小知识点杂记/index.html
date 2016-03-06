@@ -11,7 +11,8 @@
 <meta property="og:url" content="https://bbbbbbion.github.io/2015/10/01/Unity3D中的小知识点杂记/index.html">
 <meta property="og:site_name" content="六饼">
 <meta property="og:description" content="Unity3D中的小知识点杂记">
-<meta property="og:updated_time" content="2015-10-03T10:04:18.912Z">
+<meta property="og:image" content="https://bbbbbbion.github.io/img/update log.png">
+<meta property="og:updated_time" content="2016-03-06T14:11:58.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unity3D中的小知识点杂记">
 <meta name="twitter:description" content="Unity3D中的小知识点杂记">
@@ -103,7 +104,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/沙里淘金/" style="font-size: 10px;">沙里淘金</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
 					</div>
 				</section>
 				
@@ -208,18 +209,26 @@
 <h2 id="1-4_Object-FindObjectsOfType">1.4 Object.FindObjectsOfType</h2><p>static Object[] FindObjectsOfType(Type type);<br>Returns a list of all active loaded objects of Type type.<br>//这个函数是递归的，可以获得子物体。获得的是整个场景中某种类型的物体,若物体上有某个脚本（如abc.cs）,通过GameObject.FindObjectsOfType(typeof(abc)) 也可以获得到改物体</p>
 <h2 id="1-5_获得当前场景名称">1.5 获得当前场景名称</h2><p><strong>编辑器模式下：</strong>Path.GetFileName(EditorApplication.currentScene)<br>EditorApplication.currentScene获得的是诸如Assets/XXX/XXX.unity这种路径。使用Path.GetFileName获得名称和后缀.unity<br><strong>运行模式下：</strong>Application.loadedLevelName获得的只是场景名称，无后缀</p>
 <h2 id="1-6_获得机器唯一标识符">1.6 获得机器唯一标识符</h2><p>SystemInfo.deviceUniqueIdentifier<br>这个对于ios设备，ios7之前获取的才是唯一的，具体参见文档。<br>SystemInfo可以获得很多关于设备的参数信息。</p>
-<p>3：清空console面板的输出<br>以下代码对4.3.4有效<br>        public static void ClearLog()<br>    {<br>        var assembly = Assembly.GetAssembly(typeof(UnityEditor.ActiveEditorTracker));//注意Assembly需要使用using System.Reflection<br>        var type = assembly.GetType(“UnityEditorInternal.LogEntries”);<br>        var method = type.GetMethod(“Clear”);<br>        method.Invoke(new object(), null);<br>}<br>适用于运行时、适用于Editor<br><a href="http://answers.unity3d.com/questions/10580/editor-script-how-to-clear-the-console-output-wind.html" target="_blank" rel="external">http://answers.unity3d.com/questions/10580/editor-script-how-to-clear-the-console-output-wind.html</a></p>
-<p>平台依赖编译<br><a href="https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html" target="_blank" rel="external">https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html</a><br>结合#if #elif #else #endif及||使用<br>运行时平台<br>RuntimePlatform<br> if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)</p>
-<p>Rich Text<br>Unity Manual-&gt;Advanced 支持对GUI中的字体和Debug中的字符，支持的tag有<br><b></b><br><i></i></p>
+<h1 id="3：清空console面板的输出">3：清空console面板的输出</h1><p>以下代码对4.3.4有效<br>        public static void ClearLog()<br>    {<br>        var assembly = Assembly.GetAssembly(typeof(UnityEditor.ActiveEditorTracker));//注意Assembly需要使用using System.Reflection<br>        var type = assembly.GetType(“UnityEditorInternal.LogEntries”);<br>        var method = type.GetMethod(“Clear”);<br>        method.Invoke(new object(), null);<br>}<br>适用于运行时、适用于Editor<br><a href="http://answers.unity3d.com/questions/10580/editor-script-how-to-clear-the-console-output-wind.html" target="_blank" rel="external">http://answers.unity3d.com/questions/10580/editor-script-how-to-clear-the-console-output-wind.html</a></p>
+<h1 id="平台依赖编译">平台依赖编译</h1><p><a href="https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html" target="_blank" rel="external">https://docs.unity3d.com/Documentation/Manual/PlatformDependentCompilation.html</a><br>结合#if #elif #else #endif及||使用<br>运行时平台<br>RuntimePlatform<br> if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)</p>
+<h1 id="Rich_Text">Rich Text</h1><p>Unity Manual-&gt;Advanced 支持对GUI中的字体和Debug中的字符，支持的tag有<br><b></b><br><i></i></p>
 <p><size=30></size=30></p>
 <color=#00ffffff>或<color=red>
 
 
 
-<p>通过代码执行菜单项：<br>EditorApplication.ExecuteMenuItem(“GameObject/Create Other/Cube”)</p>
-<p>Color<br>程序中Color范围为[0,1]</p>
-<p>碰撞设置：<br>1，通过Edit-&gt;ProjectSettings-&gt;Physics<br>来设置全局的碰撞矩阵。<br>代码中也可以使用Physics.IgnoreLayerCollision来设置具体两个layer之间的碰撞关系。<br>static void IgnoreLayerCollision(int layer1, int layer2, bool ignore = true);<br>如：<br>Physics.IgnoreLayerCollision(9, 12, true);<br>这里的int型的layer1,layer2对应的就是Layer的Index，不需要进行位运算</p>
+<h1 id="通过代码执行菜单项">通过代码执行菜单项</h1><p>EditorApplication.ExecuteMenuItem(“GameObject/Create Other/Cube”)</p>
+<h1 id="Color">Color</h1><p>程序中Color范围为[0,1]</p>
+<h1 id="碰撞设置：">碰撞设置：</h1><p>1，通过Edit-&gt;ProjectSettings-&gt;Physics<br>来设置全局的碰撞矩阵。<br>代码中也可以使用Physics.IgnoreLayerCollision来设置具体两个layer之间的碰撞关系。<br>static void IgnoreLayerCollision(int layer1, int layer2, bool ignore = true);<br>如：<br>Physics.IgnoreLayerCollision(9, 12, true);<br>这里的int型的layer1,layer2对应的就是Layer的Index，不需要进行位运算</p>
 <p>忽略两个collider之间的碰撞，可以使用方法Physics.IgnoreCollision()</p>
+<h1 id="Editor模式下，运行，Update堵塞">Editor模式下，运行，Update堵塞</h1><pre><code>void <span class="operator"><span class="keyword">Update</span>()
+{
+    Debug.<span class="keyword">Log</span>(<span class="keyword">Time</span>.<span class="keyword">time</span>);</span>
+}
+</code></pre><p>打印结果：<br><img src="/img/update log.png" alt="&quot;Update打印结果&quot;"></p>
+<p>这也是为什么在编辑器模式下写诸如transform.translate之类的移动函数的时候，一开始会出现跳跃的原因了。</p>
+<p>解决方法，默认obj为不可见，程序中通过设置obj的Active为true，可以解决。<br>另外可以使用FixedUpdate</p>
+<h1 id="Awake执行还是不执行？">Awake执行还是不执行？</h1><p>脚本附着到gameobject上。<br>当脚本的enable为false，gameobject active为true,运行游戏后，脚本的awake函数依旧执行。<br>当脚本的enable为true，gameobject active为false,运行游戏后，脚本的awake函数不执行。</p>
 </color=red></color=#00ffffff>
       
     </div>
@@ -294,7 +303,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 bbbbbbion
+    		&copy; 2016 bbbbbbion
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unity3D中的一些技巧总结 | 六饼</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Unity3D中的一些技巧总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D中的一些技巧总结">
+<meta property="og:url" content="https://bbbbbbion.github.io/2016/03/06/Unity3D中的一些技巧总结/index.html">
+<meta property="og:site_name" content="六饼">
+<meta property="og:description" content="Unity3D中的一些技巧总结">
+<meta property="og:updated_time" content="2016-03-06T14:45:29.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity3D中的一些技巧总结">
+<meta name="twitter:description" content="Unity3D中的一些技巧总结">
+  
+    <link rel="alternative" href="/atom.xml" title="六饼" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar img 256.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">bbbbbbion</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">程序员也有一个艺术家梦。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives/">存档</a></li>
+				        
+							<li><a href="/photos">照片</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/3DSMax/" style="font-size: 10px;">3DSMax</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/C/" style="font-size: 10px;">C#</a> <a href="/tags/NShader/" style="font-size: 10px;">NShader</a> <a href="/tags/Shader/" style="font-size: 12.5px;">Shader</a> <a href="/tags/Unity3D/" style="font-size: 20px;">Unity3D</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/cg/" style="font-size: 17.5px;">cg</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/ulua/" style="font-size: 10px;">ulua</a> <a href="/tags/反射/" style="font-size: 10px;">反射</a> <a href="/tags/安卓/" style="font-size: 10px;">安卓</a> <a href="/tags/小众软件/" style="font-size: 10px;">小众软件</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/插件/" style="font-size: 10px;">插件</a> <a href="/tags/操作系统使用/" style="font-size: 10px;">操作系统使用</a> <a href="/tags/沙里淘金/" style="font-size: 10px;">沙里淘金</a> <a href="/tags/热更新/" style="font-size: 12.5px;">热更新</a> <a href="/tags/编辑器扩展/" style="font-size: 10px;">编辑器扩展</a> <a href="/tags/视频/" style="font-size: 10px;">视频</a> <a href="/tags/软件安装/" style="font-size: 15px;">软件安装</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">bbbbbbion</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/avatar img 256.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">bbbbbbion</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">程序员也有一个艺术家梦。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">存档</a></li>
+		        
+					<li><a href="/photos">照片</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Unity3D中的一些技巧总结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/Unity3D中的一些技巧总结/" class="article-date">
+  	<time datetime="2016-03-06T14:19:40.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity3D中的一些技巧总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/奇淫技巧/">奇淫技巧</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下tip来源于网络（unity wiki、unity fb、unity Twitter等）  </p>
+<h1 id="1：">1：</h1><p>When you’re using Debug.Log or related methods, provide the instance of the script so you can click the log output and have the relevant object selected in editor! Debug.Log(“Test”, this);  </p>
+<h1 id="2：">2：</h1><p>To remember which color means what on an axis in Unity, just remember the mnemonic: RGB = XYZ.</p>
+<h1 id="3：Draw_editor_gui’s_only_in_active_scene_view">3：Draw editor gui’s only in active scene view</h1><p>If you are creating custom editors for unity but only want the gui for that editor to be drawn in the currently active scene view try this …  </p>
+<pre><code><span class="keyword">if</span> <span class="params">(SceneView.mouseOverWindow.GetInstanceID<span class="params">()</span> == SceneView.currentDrawingSceneView.GetInstanceID<span class="params">()</span>)</span>
+{
+    this.DrawGUI<span class="params">(SceneView.currentDrawingSceneView)</span>;
+}
+</code></pre><h1 id="4：Execute_menu_items_from_editor_script">4：Execute menu items from editor script</h1><p>If you want to take advantage of functionality that is provided by menu commands you can useEditorApplication.ExecuteMenuItem in your editor scripts to execute them.</p>
+<h1 id="5：Screen_Resolution">5：Screen Resolution</h1><p>If you need to set the screen resolution of your game via scripting check out Screen.SetResolution.</p>
+<h1 id="6：Collider_manipulation">6：Collider manipulation</h1><p>Did you know that you can manipulate a game objects collider in the scene view by holding down the ‘Shift’ key. Holding shift will display the colliders control dots. Just drag the dots to adjust the collider!</p>
+<h1 id="7：Running_Editor_Script_Code_on_Launch">7：Running Editor Script Code on Launch</h1><p>If you need to run some script code as soon as the editor has launched you can use the InitializeOnLoad attribute.</p>
+<h1 id="8：各平台下的log文件">8：各平台下的log文件</h1><p><a href="http://docs.unity3d.com/Manual/LogFiles.html" target="_blank" rel="external">http://docs.unity3d.com/Manual/LogFiles.html</a></p>
+<h1 id="9：unity的命令行参数">9：unity的命令行参数</h1><p><a href="http://docs.unity3d.com/Manual/CommandLineArguments.html" target="_blank" rel="external">http://docs.unity3d.com/Manual/CommandLineArguments.html</a></p>
+<h1 id="11：Can_you_hear_me_now?">11：Can you hear me now?</h1><p>Unity provides access to the users microphone via the Microphone class.<br><a href="http://docs.unity3d.com/ScriptReference/Microphone.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/Microphone.html</a></p>
+<h1 id="12：Location_awareness">12：Location awareness</h1><p>Unity provides support for location awareness such as longitude, latitude, and altitude in the LocationService class.<br><a href="http://docs.unity3d.com/ScriptReference/LocationService.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/LocationService.html</a></p>
+<h1 id="13：Social_Platforms">13：Social Platforms</h1><p>Unity provides built in support for various social platforms including support for custom implementations through the Social class.<br><a href="http://docs.unity3d.com/ScriptReference/Social.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/Social.html</a></p>
+<h1 id="14：Gyroscopes">14：Gyroscopes</h1><p>If the device supports it you can use the Gyroscope class to get gyroscopic information about the orientation and acceleration of the device.<br><a href="http://docs.unity3d.com/ScriptReference/Gyroscope.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/Gyroscope.html</a></p>
+<h1 id="15:EditorApplication">15:EditorApplication</h1><p><a href="http://docs.unity3d.com/ScriptReference/EditorApplication.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/EditorApplication.html</a><br>场景的保存、新建、暂停等等用script模拟Editor相关操作</p>
+<h1 id="16:MeshUtility-Optimize">16:MeshUtility.Optimize</h1><p>程序生成的mesh可以用这个做优化</p>
+<p><a href="http://docs.unity3d.com/ScriptReference/MeshUtility.Optimize.html" target="_blank" rel="external">http://docs.unity3d.com/ScriptReference/MeshUtility.Optimize.html</a></p>
+<h1 id="17:UI渐变效果">17:UI渐变效果</h1><p><a href="http://pastebin.com/dJabCfWn" target="_blank" rel="external">http://pastebin.com/dJabCfWn</a></p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> System.Collections;
+<span class="keyword">using</span> System.Collections.Generic;
+<span class="keyword">using</span> UnityEngine.UI;
+
+[AddComponentMenu(<span class="string">"UI/Effects/Gradient"</span>)]
+<span class="keyword">public</span> <span class="keyword">class</span> Gradient : BaseVertexEffect {
+[SerializeField]
+<span class="keyword">private</span> Color32 topColor = Color.white;
+[SerializeField]
+<span class="keyword">private</span> Color32 bottomColor = Color.black;
+
+<span class="function"><span class="keyword">public</span> override <span class="keyword">void</span> <span class="title">ModifyVertices</span><span class="params">(List&lt;UIVertex&gt; vertexList)</span> </span>{
+    <span class="keyword">if</span> (!IsActive()) {
+        <span class="keyword">return</span>;
+    }
+
+    <span class="keyword">int</span> count = vertexList.Count;
+    <span class="keyword">float</span> bottomY = vertexList[<span class="number">0</span>].position.y;
+    <span class="keyword">float</span> topY = vertexList[<span class="number">0</span>].position.y;
+
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; count; i++) {
+        <span class="keyword">float</span> y = vertexList[i].position.y;
+        <span class="keyword">if</span> (y &gt; topY) {
+            topY = y;
+        }
+        <span class="keyword">else</span> <span class="keyword">if</span> (y &lt; bottomY) {
+            bottomY = y;
+        }
+    }
+
+    <span class="keyword">float</span> uiElementHeight = topY - bottomY;
+
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) {
+        UIVertex uiVertex = vertexList[i];
+        uiVertex.color = Color32.Lerp(bottomColor, topColor, (uiVertex.position.y - bottomY) / uiElementHeight);
+        vertexList[i] = uiVertex;
+    }
+}
+}
+</code></pre><h1 id="18:AABB碰撞检测">18:AABB碰撞检测</h1><p><a href="http://pastebin.com/BCEgZxSf" target="_blank" rel="external">http://pastebin.com/BCEgZxSf</a></p>
+<pre><code><span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> System.Collections;
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> Aabb
+
+{
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">Colliding</span><span class="params">( GameObject a, GameObject b )</span>
+</span>{
+    Rect aBox = a.BoxToRect();
+    Rect bBox = b.BoxToRect();
+
+    <span class="comment">// Find out if these guys intersect</span>
+    <span class="keyword">return</span> Intersect ( aBox, bBox );
+}
+
+<span class="comment">// This checks the intersection between two rectangles.</span>
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">Intersect</span><span class="params">( Rect a, Rect b )</span> 
+</span>{
+    <span class="comment">// Basic AABB collision detection. All of these must be true for there to be a collision.</span>
+    <span class="keyword">bool</span> comp1 = a.yMin &gt; b.yMax;
+    <span class="keyword">bool</span> comp2 = a.yMax &lt; b.yMin;
+    <span class="keyword">bool</span> comp3 = a.xMin &lt; b.xMax;
+    <span class="keyword">bool</span> comp4 = a.xMax &gt; b.xMin;
+
+    <span class="comment">// This will only return true if all are true.</span>
+    <span class="keyword">return</span> comp1 &amp;&amp; comp2 &amp;&amp; comp3 &amp;&amp; comp4;
+}
+
+<span class="comment">// This converts a BoxCollider2D to a rectangle for use in determining an intersection</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Rect <span class="title">BoxToRect</span> <span class="params">( <span class="keyword">this</span> GameObject a )</span>
+</span>{
+    <span class="comment">// Finding the BoxCollider2D for the GameObject.</span>
+    BoxCollider2D aCollider = a.GetComponent&lt;BoxCollider2D&gt; ();
+
+    <span class="comment">// Grabbing the GameObject position, converting it to Vector2.</span>
+    Vector2 aPos = a.transform.position.V2();
+
+    <span class="comment">// Now that we have the object's worldspace location, we offset that to the BoxCollider's center</span>
+    aPos += aCollider.center;
+    <span class="comment">// From the center, we find the top/left corner by cutting the total height/width in half and </span>
+    <span class="comment">// offset by that much</span>
+    aPos.x -= aCollider.size.x/<span class="number">2</span>;
+    aPos.y += aCollider.size.y/<span class="number">2</span>;
+
+    <span class="comment">// Create a rectangle based on the top/left corner, and extending the rectangle </span>
+    <span class="comment">// to the width/height</span>
+    <span class="keyword">return</span> <span class="keyword">new</span> Rect ( aPos.x, aPos.y, aCollider.size.x, -aCollider.size.y );
+}
+
+<span class="comment">// Converts a Vector 3 to Vector 2</span>
+<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Vector2 <span class="title">V2</span> <span class="params">( <span class="keyword">this</span> Vector3 v )</span> 
+</span>{
+    <span class="comment">// Converts the Vector3 to a Vector2.</span>
+    <span class="keyword">return</span> <span class="keyword">new</span> Vector2 (v.x, v.y);
+}
+
+}
+</code></pre><h1 id="19：Weapon_Sway_Unity3D">19：Weapon Sway Unity3D</h1><p><a href="http://pastebin.com/p5XagGuy" target="_blank" rel="external">http://pastebin.com/p5XagGuy</a></p>
+<pre><code><span class="comment">//============================================</span>
+<span class="comment">// ATTACH THIS TO WEAPON</span>
+<span class="comment">//</span>
+<span class="comment">// ATTACH WEAPON TO PLAYER GAMEOBJECT</span>
+<span class="comment">//============================================</span>
+
+<span class="keyword">using</span> UnityEngine;
+<span class="keyword">using</span> System.Collections;
+
+<span class="keyword">public</span> <span class="keyword">class</span> WeaponSwayScript : MonoBehaviour {
+<span class="keyword">public</span> <span class="keyword">float</span> mouseSensitivity = <span class="number">10f</span>;
+<span class="keyword">public</span> <span class="keyword">float</span> maxMoveAmount = <span class="number">0.5f</span>;
+<span class="keyword">public</span> <span class="keyword">float</span> smoothSpeed = <span class="number">3f</span>;
+
+<span class="keyword">private</span> Vector3 startPos;
+
+<span class="keyword">private</span> <span class="keyword">float</span> factorX;
+<span class="keyword">private</span> <span class="keyword">float</span> factorY;
+
+<span class="keyword">public</span> <span class="keyword">bool</span> bRotate;
+<span class="keyword">public</span> <span class="keyword">float</span> smoothRotationSpeed = <span class="number">2f</span>;
+<span class="keyword">public</span> <span class="keyword">float</span> rotateAmount = <span class="number">45f</span>;
+
+<span class="comment">//============================================</span>
+<span class="comment">// FUNCTIONS</span>
+<span class="comment">//============================================</span>
+
+<span class="function"><span class="keyword">void</span> <span class="title">Start</span><span class="params">()</span>
+</span>{
+    startPos = transform.localPosition;
+}
+
+<span class="function"><span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span>
+</span>{
+    <span class="comment">// STORE MOUSE MOVEMENT AMOUNTS, SMOOTH WITH LERP</span>
+    factorX = Mathf.Lerp(factorX, -Input.GetAxis(<span class="string">"Mouse X"</span>) * mouseSensitivity, Time.deltaTime * <span class="number">10f</span>);
+    factorY = Mathf.Lerp(factorY, -Input.GetAxis(<span class="string">"Mouse Y"</span>) * mouseSensitivity, Time.deltaTime * <span class="number">10f</span>);
+
+    <span class="comment">// CLAMP LIMITS</span>
+    <span class="keyword">if</span> (factorX &gt; maxMoveAmount)
+        factorX = maxMoveAmount;
+
+    <span class="keyword">if</span> (factorX &lt; -maxMoveAmount)
+        factorX = -maxMoveAmount;
+
+    <span class="keyword">if</span> (factorY &gt; maxMoveAmount)
+        factorY = maxMoveAmount;
+
+    <span class="keyword">if</span> (factorY &lt; -maxMoveAmount)
+        factorY = -maxMoveAmount;
+
+    <span class="comment">// SET TARGET POSITION (START POSITION + MOUSE MOVEMENT)</span>
+    Vector3 targetPos = <span class="keyword">new</span> Vector3(startPos.x + factorX, startPos.y + factorY, startPos.z);
+
+    <span class="comment">// APPLY POSITION TO WEAPON, SMOOTH WITH LERP</span>
+    transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, smoothSpeed * Time.deltaTime);
+
+    <span class="comment">// ROTATION</span>
+    <span class="keyword">if</span> (bRotate)
+    {
+        <span class="keyword">float</span> tiltAroundZ = Input.GetAxis(<span class="string">"Mouse X"</span>) * rotateAmount;
+        <span class="keyword">float</span> tiltAroundX = Input.GetAxis(<span class="string">"Mouse Y"</span>) * rotateAmount;
+        Vector3 target = <span class="keyword">new</span> Vector3(tiltAroundX, <span class="number">0f</span>, tiltAroundZ);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(target), Time.deltaTime * smoothRotationSpeed);
+    }
+}
+}
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/06/MemoryPool/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          MemoryPool
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/06/DES加密/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DES加密</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Unity3D中的一些技巧总结" data-title="Unity3D中的一些技巧总结" data-url="https://bbbbbbion.github.io/2016/03/06/Unity3D中的一些技巧总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 bbbbbbion
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
